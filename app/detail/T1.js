@@ -24,7 +24,8 @@ class Main extends React.Component {
                 style={{ 
                 flex: 1, 
                 alignItems: "center", 
-                justifyContent: "center" 
+                justifyContent: "center",
+                backgroundColor: "#000000"
                 }}>
                 <StatusBar barStyle="dark-content" />
                 <Modal
@@ -34,9 +35,12 @@ class Main extends React.Component {
                     onRequestClose={() => {
                         alert("Modal has been closed.");
                     }}
+                    presentationStyle="formSheet"
                     >
-                    <View style={{ marginTop: 22 }}>
-                        <View>
+                    <View
+                        style={{ marginTop: 22, height: 100 }}
+                    >
+                        <View  style={{ marginTop: 22, height: 100 }}>
                         <Text> World!</Text>
 
                             <TouchableHighlight
@@ -50,16 +54,16 @@ class Main extends React.Component {
                     </View>
                 </Modal>
                 {/* <ActivityIndicator /> */}
-                {/* <Text
+                {/* {/* <Text
                     onPress={() => {
                         this.props.navigation.navigate('Home')
                     }}
-                >T1</Text>
+                >T1</Text> */}
                 <Text
                     onPress={() => {
-                        this.props.navigation.navigate('DrawerToggle')
+                        this.setModalVisible(!this.state.modalVisible);
                     }}
-                >DrawerToggle</Text> */}
+                >show</Text>
             </View>
         );
     }
