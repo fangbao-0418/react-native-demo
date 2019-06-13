@@ -1,5 +1,5 @@
 import React from "react"; 
-import { View, Text } from "react-native"; 
+import { View, Text, ScrollView, SafeAreaView } from "react-native"; 
 import {
   createStackNavigator,
   createBottomTabNavigator,
@@ -14,7 +14,30 @@ const AppNavigator = createDrawerNavigator(
     T2: T2
   },
   {
-    initialRouteName: "T1"
+    initialRouteName: "T1",
+    contentComponent: (...args) => {
+      console.log(args, 'args')
+      return (
+        <ScrollView
+          style={{
+            flex: 1,
+            backgroundColor: '#000'
+          }}
+        >
+              <SafeAreaView
+              >
+            <Text
+              style={{
+                color: '#fff'
+              }}
+              onPress={() => {
+                alert('222')
+              }}
+            >MENU</Text>
+            </SafeAreaView>
+        </ScrollView>
+      )
+    }
   }
 );
 export default createAppContainer(AppNavigator);

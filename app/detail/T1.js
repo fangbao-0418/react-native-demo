@@ -23,9 +23,9 @@ class Main extends React.Component {
             <View 
                 style={{ 
                 flex: 1, 
-                alignItems: "center", 
-                justifyContent: "center",
-                backgroundColor: "#000000"
+                    alignItems: "center", 
+                    justifyContent: "center",
+                // backgroundColor: "#000000"
                 }}>
                 <StatusBar barStyle="dark-content" />
                 <Modal
