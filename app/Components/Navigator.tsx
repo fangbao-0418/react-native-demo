@@ -17,7 +17,7 @@ export default class extends React.Component<Props> {
     return (
       <SafeAreaView
         style={{
-          flex: 1,
+          height: 60,
           backgroundColor: 'rgba(0,0,0, 1)',
           justifyContent: 'center',
           alignItems: 'center'
@@ -47,14 +47,15 @@ export default class extends React.Component<Props> {
               width: 100
             }}
           >
-            <Text>
+            <Text
+              onPress={() => {
+                this.props.navigation.goBack()
+              }}
+            >
               {'< 返回'}
             </Text>
           </View>
           <View
-          // style={{
-          //   flex: 1
-          // }}
           >
             <Text
               ref='title'

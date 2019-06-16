@@ -46,7 +46,7 @@ const AppNavigator = createStackNavigator(
     defaultNavigationOptions: ({ navigation }) => ({
       header: (props) => {
         return (
-          <Navigator />
+          <Navigator {...props}/>
         )
       }
     })
