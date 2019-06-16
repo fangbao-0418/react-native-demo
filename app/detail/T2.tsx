@@ -1,36 +1,42 @@
-import React from "react"; 
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"; 
-import { RNCamera, FaceDetector } from 'react-native-camera';
+import * as React from 'react'
+import { StyleSheet, Text, TouchableOpacity, View, CameraRoll } from 'react-native'
+import { RNCamera, FaceDetector } from 'react-native-camera'
 const PendingView = () => (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: 'lightgreen',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text>Waiting</Text>
-    </View>
-  );
-  
+  <View
+    style={{
+      flex: 1,
+      backgroundColor: 'lightgreen',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    <Text>Waiting</Text>
+  </View>
+)
+
 class Main extends React.Component {
-    static navigationOptions = {
-        title: 'T2',
+  public static navigationOptions = {
+    title: 'T3',
+  }
+  public camera: RNCamera
+  public async takePicture() {
+    if (this.camera) {
+      const options = { quality: 0.5, base64: true }
+      console.log(this.camera, 'xxx')
+      const camera = this.camera
+      const data = await camera.takePictureAsync(options)
+      console.log(data.uri, 'uri')
+      console.log(CameraRoll.saveToCameraRoll, 'CameraRoll')
+      const res = await CameraRoll.saveToCameraRoll(data.uri, 'photo')
+      console.log(res, 'res')
     }
-    takePicture = async() => {
-        if (this.camera) {
-          const options = { quality: 0.5, base64: true };
-          const data = await this.camera.takePictureAsync(options);
-          console.log(data.uri);
-        }
-      }
-    render() {
-        return (
-            <View style={styles.container}> 
-                <RNCamera
-          ref={ref => {
-            this.camera = ref;
+  }
+  public render() {
+    return (
+      <View style={styles.container}>
+        <RNCamera
+          ref={(ref) => {
+            this.camera = ref
           }}
           style={styles.preview}
           type={RNCamera.Constants.Type.back}
@@ -48,11 +54,10 @@ class Main extends React.Component {
             buttonNegative: 'Cancel',
           }}
           onGoogleVisionBarcodesDetected={({ barcodes }) => {
-            console.log(barcodes);
+            console.log(barcodes)
           }}
         >
-            <PendingView />;
-            {/* {() => {
+          {/* {() => {
              return <PendingView />;
             // return (
             //   <View style={{ flex: 0, flexDirection: 'row', justifyContent: 'center' }}>
@@ -68,29 +73,29 @@ class Main extends React.Component {
             <Text style={{ fontSize: 14 }}> SNAP </Text>
           </TouchableOpacity>
         </View>
-            </View>
-        );
-    }
+      </View>
+    )
+  }
 }
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      backgroundColor: 'black',
-    },
-    preview: {
-      flex: 1,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    capture: {
-      flex: 0,
-      backgroundColor: '#fff',
-      borderRadius: 5,
-      padding: 15,
-      paddingHorizontal: 20,
-      alignSelf: 'center',
-      margin: 20,
-    },
-  });
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    backgroundColor: 'black',
+  },
+  preview: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  capture: {
+    flex: 0,
+    backgroundColor: '#fff',
+    borderRadius: 5,
+    padding: 15,
+    paddingHorizontal: 20,
+    alignSelf: 'center',
+    margin: 20,
+  },
+})
 export default Main
