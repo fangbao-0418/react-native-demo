@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
-    "jsx": "react-native"
+    "jsx": "react-native",
+    "allowSyntheticDefaultImports": true,
+    "lib": [
+      "es2015",
+      "es2016"
+    ]
   }
 }

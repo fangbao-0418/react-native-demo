@@ -4,7 +4,8 @@ import {
   SafeAreaView
 } from 'react-native'
 import Navigator from './app/index'
-export default class extends React.Component {
+import { Provider } from '@ant-design/react-native';
+class Main extends React.Component {
   public render () {
     return (
       <SafeAreaView
@@ -12,9 +13,11 @@ export default class extends React.Component {
           flex: 1
         }}
       >
-        <Navigator />
+        <Provider>
+          <Navigator />
+        </Provider>
       </SafeAreaView>
     )
   }
 }
-// export default Main
+export default Main

@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import {
   ScrollView,
   View,
@@ -6,6 +6,7 @@ import {
   TextInput,
   KeyboardAvoidingView
 } from 'react-native'
+import { InputItem, Checkbox } from '@ant-design/react-native'
 interface States {
   value: string
 }
@@ -23,9 +24,6 @@ export default class Main extends React.Component<{}, States> {
       <ScrollView
         style={{
           flex: 1,
-          backgroundColor: '#000',
-          // justifyContent: 'flex-end',
-          // alignItems: 'center',
           padding: 20
         }}
       >
@@ -36,11 +34,10 @@ export default class Main extends React.Component<{}, States> {
         >
           <TextInput
             style={{
-              color: '#FFF',
               width: 100,
               height: 40,
               borderWidth: 1,
-              borderColor: '#FFF',
+              borderColor: '#000',
               margin: 100,
               padding: 5
             }}
@@ -57,12 +54,15 @@ export default class Main extends React.Component<{}, States> {
             }}
           />
           <Text
-            style={{
-              color: '#FFF'
-            }}
           >
             {this.state.value}
           </Text>
+          <InputItem
+            // style={{
+            //   color: '#FFF'
+            // }}
+          />
+          <Checkbox>Checkbox</Checkbox>
         </KeyboardAvoidingView>
       </ScrollView>
     )

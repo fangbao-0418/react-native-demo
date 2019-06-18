@@ -11,19 +11,15 @@ import Photo from './Photo'
 import Form from './Form'
 import Home from './Home'
 import Interaction from './Interaction'
-import TopTabNavigator from './TopTabNavigator'
-const AppNavigator = createStackNavigator(
+const AppNavigator = createMaterialTopTabNavigator(
   {
-    Home,
     Photo,
     Camera,
     Form,
-    Interaction,
-    TopTabNavigator
+    Interaction
   },
   {
-    initialRouteName: 'Home',
-    headerMode: 'none'
+    initialRouteName: 'Interaction'
   }
 )
 export default createAppContainer(AppNavigator)
