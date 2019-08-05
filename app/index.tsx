@@ -12,6 +12,7 @@ import Form from './Form'
 import Home from './Home'
 import Interaction from './Interaction'
 import TopTabNavigator from './TopTabNavigator'
+import Webview from './Webview'
 const AppNavigator = createStackNavigator(
   {
     Home,
@@ -19,7 +20,8 @@ const AppNavigator = createStackNavigator(
     Camera,
     Form,
     Interaction,
-    TopTabNavigator
+    TopTabNavigator,
+    Webview
   },
   {
     initialRouteName: 'Home',

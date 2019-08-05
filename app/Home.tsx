@@ -53,6 +53,18 @@ class Main extends React.Component<NavigationScreenConfigProps> {
         >
           数据交互测试
         </Button>
+        <Button
+          style={{
+            width: 200,
+            marginTop: 20
+          }}
+          type='primary'
+          onPress={() => (
+            this.props.navigation.push('Webview')
+          )}
+        >
+          webview测试
+        </Button>
       </View>
     )
   }

@@ -20,7 +20,11 @@ export default class extends React.Component {
     ImagePicker.openPicker({
       width: 300,
       height: 400,
-      cropping: true
+      cropping: true,
+      // multiple: true,
+      // cropperCircleOverlay: true,
+      // cropperCancelText: '取消',
+      // cropperChooseText: '选择'
     }).then((image) => {
       console.log(image)
     })
